@@ -9,14 +9,16 @@ public class App {
 	public static void main(String[] args) {
 		
 		Address pavAddress = new Address("MidTown","5th Street");
-		User pavan = new User("Goku", pavAddress);
+		User leonard = new User("Leonard", pavAddress);
+		User penny = new User("Penny", pavAddress);
 		
 		Configuration config = new Configuration().configure().addAnnotatedClass(User.class).addAnnotatedClass(Address.class);
 		SessionFactory sf = config.buildSessionFactory();
 		Session session = sf.openSession();
 		session.beginTransaction();
 		
-		session.persist(pavan);
+		session.persist(leonard);
+		session.persist(penny);
 		
 		session.getTransaction().commit();
 		session.close();
