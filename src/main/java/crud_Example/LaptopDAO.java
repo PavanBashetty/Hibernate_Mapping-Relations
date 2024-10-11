@@ -32,10 +32,10 @@ public class LaptopDAO {
 	}
 	
 	//UPDATE
-	public void updateLaptop(Laptop laptop) {
+	public void updateLaptop(Laptop laptop, Pupil pupil) {
 		Session session = sf.openSession();
 		session.beginTransaction();
-		 // Merge handles both updates and insertions if needed
+		laptop.setPupil(pupil);
 		session.merge(laptop);
 		session.getTransaction().commit();
 		session.close();

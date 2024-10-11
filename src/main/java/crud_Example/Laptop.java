@@ -1,5 +1,6 @@
 package crud_Example;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -16,7 +17,7 @@ public class Laptop {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 	private String laptopName;
-	@ManyToOne
+	@ManyToOne(cascade=CascadeType.MERGE)
 	@JoinColumn(name="pupil_id")
 	private Pupil pupil;
 	
